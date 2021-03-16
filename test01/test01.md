@@ -25,15 +25,15 @@ GROUP BY d.department_name;
 
 ##### 执行时间
 
-![执行时间图](./pic/1.png)
+![执行时间图](.\pic\1.png)
 
 ##### 执行结果
 
-![执行结果图](./pic/2.png)
+![执行结果图](.\pic\2.png)
 
 ##### SQL优化建议
 
-![优化建议](./pic/3.png)
+![优化建议](.\pic\3.png)
 
 #### 2.2 查询语句2
 
@@ -50,15 +50,15 @@ HAVING d.department_name in ('IT','Sales');
 
 ##### 执行时间
 
-![执行时间](./pic/4.png)
+![执行时间](.\pic\4.png)
 
 ##### 执行结果
 
-![执行结果](./pic/5.png)
+![执行结果](.\pic\5.png)
 
 ##### SQL优化建议
 
-![优化建议](./pic/6.png)
+![优化建议](.\pic\6.png)
 
 #### 2.3 SQL分析
 
@@ -85,15 +85,15 @@ and d.department_name in('IT','Sales');
 
 ##### 执行时间
 
-![](./pic/7.png)
+![](.\pic\7.png)
 
 ##### 执行结果
 
-![](./pic/8.png)
+![](.\pic\8.png)
 
 ##### SQL优化建议
 
-![](./pic/9.png)
+![](.\pic\9.png)
 
 ### 4.试验总结
 
