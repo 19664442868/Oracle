@@ -14,30 +14,31 @@ Oracle有一个开发者角色resource，可以创建表、过程、触发器等
 
 ## 3. 试验过程及截图
 
-1. 创建角色lyins和用户new_user，并授权和分配空间：
+1. 创建角色lys和用户new_lys，并授权和分配空间：
 
    ```sql
-   CREATE ROLE lyins;
-   GRANT connect,resource,CREATE VIEW TO lyins;
+   CREATE ROLE lys;
+   GRANT connect,resource,CREATE VIEW TO lys;
    ```
 
-   运行结果：
-
-![1](./pic/1.png)
 
 2. 授权和分配空间
 
    ```sql
-   GRANT connect,resource,CREATE VIEW TO lyins;
-   CREATE USER lyins IDENTIFIED BY 123 DEFAULT TABLESPACE users TEMPORARY TABLESPACE temp;
+   GRANT connect,resource,CREATE VIEW TO lys;
+   CREATE USER user_lys IDENTIFIED BY 123 DEFAULT TABLESPACE users TEMPORARY TABLESPACE temp;
    ALTER USER lyins QUOTA 50M ON users;
-   GRANT lyins TO new_user;
+   GRANT lyins TO lys;
    ```
+
+   运行截图：
+
+   ![](./pic/6.png)
 
 3. 用新用户连接到pdborcl，创建表mytable和视图myview，插入数据，最后将myview的SELECT对象权限授予hr用户。
 
    ```sql
-   sqlplus new_user/123@pdborcl
+   sqlplus lys/123@pdborcl
    SHOW user;
    CREATE TABLE mytable (id number,name varchar(50));
    INSERT INTO mytable(id,name)VALUES(1,'zhang');
