@@ -53,7 +53,7 @@ Oracle有一个开发者角色resource，可以创建表、过程、触发器等
 
    ![](./pic/3.png)
 
-   4. 用户hr连接到pdborcl，查询new_user授予它的视图myview
+4. 用户hr连接到pdborcl，查询new_user授予它的视图myview
 
    ```sql
    sqlplus hr/123@pdborcl
@@ -64,9 +64,7 @@ Oracle有一个开发者角色resource，可以创建表、过程、触发器等
 
    ![](./pic/4.png)
 
-   
-
-   5. 查看数据库的使用情况
+5. 查看数据库的使用情况
 
    ```sql
    SELECT tablespace_name,FILE_NAME,BYTES/1024/1024 MB,MAXBYTES/1024/1024 MAX_MB,autoextensible FROM dba_data_files  WHERE  tablespace_name='USERS';
@@ -85,7 +83,6 @@ Oracle有一个开发者角色resource，可以创建表、过程、触发器等
    ![](./pic/5.png)
 
 ## 4. 试验总结
-
 本次试验学习了用户管理、角色管理、权限维护与分配和用户之间共享对象等，创建角色命令是CREATE ROLE，创建用户命令是CREATE USER，使用ALTER 命令修改用户，使用GRNAT ... TO ...给用户授予权限。 建表语句、插入和查询语句跟之前学的MYSQL命令类似，最后查询新建的用户授予的视图。试验过程中，没有遇到什么问题，跟着实例代码敲就行了。
 
 
