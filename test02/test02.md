@@ -55,32 +55,34 @@ Oracle有一个开发者角色resource，可以创建表、过程、触发器等
 
    4. 用户hr连接到pdborcl，查询new_user授予它的视图myview
 
-      ```sql
-      sqlplus hr/123@pdborcl
-      SELECT * FROM new_user.myview;
-      ```
+   ```sql
+   sqlplus hr/123@pdborcl
+   SELECT * FROM new_user.myview;
+   ```
 
-      运行截图:
+   运行截图:
 
-      ![](./pic/4.png)
+   ![](./pic/4.png)
 
-      5. 查看数据库的使用情况
+   
 
-         ```sql
-         SELECT tablespace_name,FILE_NAME,BYTES/1024/1024 MB,MAXBYTES/1024/1024 MAX_MB,autoextensible FROM dba_data_files  WHERE  tablespace_name='USERS';
-         SELECT a.tablespace_name "表空间名",Total/1024/1024 "大小MB",
-          free/1024/1024 "剩余MB",( total - free )/1024/1024 "使用MB",
-          Round(( total - free )/ total,4)* 100 "使用率%"
-          from (SELECT tablespace_name,Sum(bytes)free
-                 FROM   dba_free_space group  BY tablespace_name)a,
-                (SELECT tablespace_name,Sum(bytes)total FROM dba_data_files
-                 group  BY tablespace_name)b
-          where  a.tablespace_name = b.tablespace_name;
-         ```
+   5. 查看数据库的使用情况
 
-         运行截图：
+   ```sql
+   SELECT tablespace_name,FILE_NAME,BYTES/1024/1024 MB,MAXBYTES/1024/1024 MAX_MB,autoextensible FROM dba_data_files  WHERE  tablespace_name='USERS';
+   SELECT a.tablespace_name "表空间名",Total/1024/1024 "大小MB",
+    free/1024/1024 "剩余MB",( total - free )/1024/1024 "使用MB",
+    Round(( total - free )/ total,4)* 100 "使用率%"
+    from (SELECT tablespace_name,Sum(bytes)free
+           FROM   dba_free_space group  BY tablespace_name)a,
+          (SELECT tablespace_name,Sum(bytes)total FROM dba_data_files
+           group  BY tablespace_name)b
+    where  a.tablespace_name = b.tablespace_name;
+   ```
 
-         ![](./pic/5.png)
+   运行截图：
+
+   ![](./pic/5.png)
 
 ## 4. 试验总结
 
