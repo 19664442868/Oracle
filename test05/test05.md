@@ -107,7 +107,7 @@ CONNECT BY PRIOR EMPLOYEE_ID = MANAGER_ID
 
 5. 测试
 
-   * 函数SaleAmount()测试方法：
+* 函数SaleAmount()测试方法：
    ```
    select count(*) from orders;
    select MyPack.SaleAmount(11) AS 部门11应收金额,MyPack.SaleAmount(12) AS 部门12应收金额 from dual;
@@ -119,21 +119,21 @@ CONNECT BY PRIOR EMPLOYEE_ID = MANAGER_ID
 
 
 
-* * 过程EMPLOYEES()测试代码：
+* 过程EMPLOYEES()测试代码：
 
-* ```sql
-  set serveroutput on
-  DECLARE
-    V_EMPLOYEE_ID NUMBER;    
-  BEGIN
-    V_EMPLOYEE_ID := 1;
-    MYPACK.Employees (  V_EMPLOYEE_ID => V_EMPLOYEE_ID) ;  
-    V_EMPLOYEE_ID := 11;
-    MYPACK.Employees (  V_EMPLOYEE_ID => V_EMPLOYEE_ID) ;    
-  END;
-  ```
+   ```sql
+      set serveroutput on
+      DECLARE
+        V_EMPLOYEE_ID NUMBER;    
+      BEGIN
+        V_EMPLOYEE_ID := 1;
+        MYPACK.Employees (  V_EMPLOYEE_ID => V_EMPLOYEE_ID) ;  
+        V_EMPLOYEE_ID := 11;
+        MYPACK.Employees (  V_EMPLOYEE_ID => V_EMPLOYEE_ID) ;    
+      END;
+   ```
 
-* ![](./pic/6.png)
+![](./pic/6.png)
 
 ## 实验总结
 
