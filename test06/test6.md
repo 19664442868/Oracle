@@ -2,7 +2,7 @@
 
 ## 基于Oracle的书籍交易系统数据库设计
 
-#### 1.创建表空间
+### 1.创建表空间
 
 - space_lys001
 
@@ -30,7 +30,7 @@ EXTENT MANAGEMENT LOCAL SEGMENT SPACE MANAGEMENT AUTO;
 
 ![](./pic/1.png)
 
-#### 2. 创建角色及用户
+### 2. 创建角色及用户
 
 **用户默认使用表空间space_lys001**
 **创建第一个角色和用户**
@@ -73,7 +73,7 @@ GRANT lys2 TO lys_2;
 
 ![](./pic/3.png)
 
-#### 3. 在用户lys_1下创建表
+### 3. 在用户lys_1下创建表
 
 **创建管理员表**
 
@@ -419,7 +419,7 @@ select * from view_SinglePriceSum;
 ALTER USER lys_1 QUOTA 90M ON space_lys001;
 ```
 
-#### 4. 插入用户、商品、购物车数据
+### 4. 插入用户、商品、购物车数据
 
 ```sql
 declare
@@ -469,7 +469,7 @@ begin
 end;
 ```
 
-#### 6.创建程序包、存储过程、函数执行分析计划
+### 6.创建程序包、存储过程、函数执行分析计划
 
 **创建程序包**
 
@@ -567,7 +567,7 @@ WHERE a.tablespace_name = b.tablespace_name
 
 ![](./pic/11.png)
 
-#### 7.备份恢复
+### 7.备份恢复
 
 - 备份./rman_level0.sh
 
